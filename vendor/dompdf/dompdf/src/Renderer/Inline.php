@@ -118,6 +118,9 @@ class Inline extends AbstractRenderer
             if (is_null($w)) {
                 $w = (float)$child_w;
             }else {
+                // PHP8 patch
+                $w = (float) $w;
+
                 $w += (float)$child_w;
             }
 
@@ -147,6 +150,9 @@ class Inline extends AbstractRenderer
         if (($url = $style->background_image) && $url !== "none") {
             $this->_background_image($url, $x + $widths[3], $y + $widths[0], $w, $h, $style);
         }
+        // PHP8 patch
+        $w = (float) $w;
+        $h = (float) $h;
 
         // Add the border widths
         $w += (float)$widths[1] + (float)$widths[3];

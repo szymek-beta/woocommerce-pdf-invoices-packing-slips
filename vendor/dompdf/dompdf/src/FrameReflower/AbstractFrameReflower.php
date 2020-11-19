@@ -284,6 +284,10 @@ abstract class AbstractFrameReflower
                 $max = $width;
             }
         }
+        // PHP8 patch
+        $min = (float) $min;
+        $max = (float) $max;
+        $delta = (float) $delta;
 
         $min += $delta;
         $max += $delta;
